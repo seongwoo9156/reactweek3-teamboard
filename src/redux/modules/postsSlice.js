@@ -23,9 +23,9 @@ export const __getPosts = createAsyncThunk(
     try {
       const data = payload
         ? await axios.get(
-            `${REACT_APP_APIADDRESS}/posts?_sort=postingTime&_order=desc&_page=${payload.page}&_limit=${payload.limit}`
+            `${API_URL}/posts?_sort=postingTime&_order=desc&_page=${payload.page}&_limit=${payload.limit}`
           )
-        : await axios.get(`${REACT_APP_APIADDRESS}/posts?_page`);
+        : await axios.get(`${API_URL}/posts?_page`);
       return thunkAPI.fulfillWithValue(data.data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
